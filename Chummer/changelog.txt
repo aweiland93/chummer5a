@@ -9,6 +9,10 @@ Application Changes:
 - Foxed some behaviour in creation of packs to properly allow creatio nof lifestyles.
 - Fixed behaviour of child Cyberware with the AddToParentESS flag not properly adding their essence cost to the parent.
 - Fixed issues with the subsystem and gear limitations for Cyberware and Gear that prevented categories from loading properly.
+- Capped cost multipliers for lifestyles to -0%. 
+- Added the 'lifestyle' attribute to the lifestylecost and basiclifestylecost improvement types. This supports limiting the bonus to a specific Lifestyle type, such as Low or Squatter. 
+- ValueOf has been altered slightly to allow for selecting objects that are either of a given ImprovedName, or don't have one, in support of the above changes. Defaults to existing behaviour.
+- Implemented a basic upgrade mechanism in career mode for cyberware, accessed through a submenu of the Delete Cyberware button.
 
 Data Changes:
 - Fixed incorrect underbarrel weapon name for the Nissan Optimum II that caused a crash. Fixes part of #3344
@@ -20,6 +24,7 @@ Data Changes:
 - Fixed missing nuyen bp costs for the ShadowNET starter pack and Runnerhub Basic Gear Pack. Fixes #3368
 - The Auto Injector Expension and Killswitch are now properly addable to the Autoinjector as child objects. They've been renamed to Expanded Reservoir and Killswitch, respectively. Fixes #3365
 - Fixed issues with the Infected Optional Power qualities that prevented them being taken in create mode. Closes #3234
+- Implemented the lifestyle discount for the Community Connection quality. Closes #3372
 
 Build 204
 
@@ -94,6 +99,8 @@ New Strings:
 - Checkbox_DiceRoller_VariableGlitch
 - Message_CustomDrug_Name
 - MessageTitle_CustomDrug_Name
+- Tab_Options_Plugins
+- String_AvailablePlugins
 
 Changed Strings:
 

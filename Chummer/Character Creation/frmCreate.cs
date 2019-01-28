@@ -54,6 +54,8 @@ namespace Chummer
         //private readonly Stopwatch PowerPropertyChanged_StopWatch = Stopwatch.StartNew();
         //private readonly Stopwatch SkillPropertyChanged_StopWatch = Stopwatch.StartNew();
 
+        public TabControl TabCharacterTabs { get { return this.tabCharacterTabs; } }
+
         #region Form Events
         [Obsolete("This constructor is for use by form designers only.", true)]
         public frmCreate()
@@ -691,6 +693,7 @@ namespace Chummer
             // Stupid hack to get the MDI icon to show up properly.
             Icon = Icon.Clone() as Icon;
 
+            Program.MainForm.PluginLoader.CallPlugins(this);
             Timekeeper.Finish("load_frm_create");
             Timekeeper.Finish("loading");
 
@@ -8765,7 +8768,7 @@ namespace Chummer
             if (IsLoading || IsRefreshing || CharacterObject.MagicTradition.Type == TraditionType.MAG)
                 return;
             string strSelectedId = cboStream.SelectedValue?.ToString();
-            if (string.IsNullOrEmpty(strSelectedId) || strSelectedId == CharacterObject.MagicTradition.SourceID)
+            if (string.IsNullOrEmpty(strSelectedId) || strSelectedId == CharacterObject.MagicTradition.strSourceID)
                 return;
 
             XmlNode xmlNewStreamNode = XmlManager.Load("streams.xml").SelectSingleNode("/chummer/traditions/tradition[id = \"" + strSelectedId + "\"]");
@@ -11518,7 +11521,6 @@ namespace Chummer
             Location objLocation = null;
             if (objSelectedGear == null)
             {
-                objSelectedGear = new Gear(CharacterObject);
                 blnNullParent = true;
                 objLocation =
                     CharacterObject.GearLocations.FirstOrDefault(location => location.InternalId == strSelectedId);
@@ -11543,7 +11545,7 @@ namespace Chummer
                 }
             }
 
-            frmSelectGear frmPickGear = new frmSelectGear(CharacterObject, objSelectedGear.ChildAvailModifier, objSelectedGear.ChildCostMultiplier, objSelectedGear, strCategories);
+            frmSelectGear frmPickGear = new frmSelectGear(CharacterObject, objSelectedGear?.ChildAvailModifier ?? 0, objSelectedGear?.ChildCostMultiplier ?? 1, objSelectedGear, strCategories);
             if (!blnNullParent)
             {
                 // If the Gear has a Capacity with no brackets (meaning it grants Capacity), show only Subsystems (those that conume Capacity).

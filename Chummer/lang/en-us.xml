@@ -72,6 +72,10 @@
       <text>N/A</text>
     </string>
     <string>
+      <key>String_Wireless</key>
+      <text>Wireless</text>
+    </string>
+    <string>
       <key>String_Version</key>
       <text>Version</text>
     </string>
@@ -498,6 +502,10 @@
     <string>
       <key>Checkbox_HomeNode</key>
       <text>Home Node</text>
+    </string>
+    <string>
+      <key>Checkbox_Wireless</key>
+      <text>Wireless Enabled</text>
     </string>
     <string>
       <key>Checkbox_Commlinks</key>
@@ -3269,6 +3277,10 @@
     <string>
       <key>String_ExpensePurchaseCyberwareSuite</key>
       <text>Purchased Cyberware Suite</text>
+    </string>
+    <string>
+      <key>String_ExpenseUpgradedCyberware</key>
+      <text>Upgraded Cyberware</text>
     </string>
     <string>
       <key>String_ExpensePurchaseWeapon</key>
@@ -7061,6 +7073,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
       <text>Miscellaneous</text>
     </string>
     <string>
+      <key>Tab_Options_Plugins</key>
+      <text>Plugins</text>
+    </string>
+    <string>
       <key>Label_Options_EditSourcebookInfo</key>
       <text>Edit Sourcebook Info</text>
     </string>
@@ -7831,6 +7847,10 @@ Only one attribute may be at its Maximum value during character creation.</text>
     <string>
       <key>Label_Options_NuyenDecimalsMaximum</key>
       <text>Maximum number of Nuyen decimal places to display:</text>
+    </string>
+    <string>
+      <key>String_AvailablePlugins</key>
+      <text>Available Plugins</text>
     </string>
     <!-- End Region-->
     <!-- Region Print Multiple Window -->
